@@ -1,0 +1,106 @@
+﻿@using SPY.DB.Model
+@using SPY.View.Model
+@model SiteInfo
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>站点基本信息--SPY后台管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="~/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="~/css/public.css" media="all" />
+</head>
+<body class="childrenBody">
+    <form class="layui-form layui-row layui-col-space10">
+        <div class="layui-form-item">
+            <label class="layui-form-label">栏目数</label>
+            <div class="layui-input-inline">
+                <input type="text" name="studentName" value="@Model.ColumnCount" id="studentName" required lay-verify="required" placeholder="栏目数" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux" id="studentNameLabel">栏目数</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">评论数</label>
+            <div class="layui-input-inline">
+                <input type="text" name="studentName" value="@Model.CommentCount" id="studentName" required lay-verify="required" placeholder="评论数" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux" id="studentNameLabel">评论数</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">文章数</label>
+            <div class="layui-input-inline">
+                <input type="text" name="studentName" value="@Model.ArticleCount" id="studentName" required lay-verify="required" placeholder="文章数" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux" id="studentNameLabel">文章数</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">标签数</label>
+            <div class="layui-input-inline">
+                <input type="text" name="studentName" value="@Model.TagCount" id="studentName" required lay-verify="required" placeholder="标签数" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux" id="studentNameLabel">标签数</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">访问量</label>
+            <div class="layui-input-inline">
+                <input type="text" name="views" value="@Model.Views" id="views" required lay-verify="required" placeholder="访问量" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux" id="studentNameLabel">访问量</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">中间标题</label>
+            <div class="layui-input-inline">
+                <input type="text" name="centerTitle" value="@Model.CenterTitle" id="centerTitle" required lay-verify="" placeholder="中间标题" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux" id="studentNameLabel">中间标题</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">MY MOTTO</label>
+            <div class="layui-input-inline">
+                <input type="text" name="motto" value="@Model.Motto" id="motto" required lay-verify="" placeholder="MY MOTTO" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux" id="studentNameLabel">MY MOTTO</div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn add-btn" lay-submit lay-filter="add-btn">添加</button>
+                <button type="reset" class="layui-btn layui-btn-primary btn-reset">重置</button>
+            </div>
+        </div>
+    </form>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/layui/layui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".add-btn").click(function () {
+                $.ajax({
+                    url: "/Content/UpdateSiteInfo",
+                    type: "PUT",
+                    data: {
+                        Views: $("input[name='views']").val(),
+                        CenterTitle:$("input[name='centerTitle']").val(),
+                        Motto:$("input[name='motto']").val(),
+                    },
+                    dataType: "json",
+                    success: function (res) {
+                        if (res == "SUCCESS") {
+                            alert("修改成功");
+                        } else {
+                            alert("修改失败");
+                        }
+                    }
+                });
+            });
+        })
+    </script>
+</body>
+</html>

@@ -15,11 +15,41 @@ namespace SPY.Admin.Controllers
     {
         private readonly UserManager<ApplicationIdentityUser> _userManager;
         private readonly IArticleManager _articleManager;
+        private readonly ISiteInfoManager _siteInfoManager;
 
-        public ContentController(IArticleManager articleManager, UserManager<ApplicationIdentityUser> userManager)
+        public ContentController(IArticleManager articleManager, ISiteInfoManager siteInfoManager, UserManager<ApplicationIdentityUser> userManager)
         {
             _articleManager = articleManager;
             _userManager = userManager;
+            _siteInfoManager = siteInfoManager;
+        }
+        public IActionResult SiteInfo()
+        {
+            SiteInfo siteinfo = _siteInfoManager.GetAllEntities().FirstOrDefault();
+            if (siteinfo == null)
+            {
+                siteinfo = new SiteInfo();
+            }
+            return View(siteinfo);
+        }
+        [HttpPut]
+        public IActionResult UpdateSiteInfo(SiteInfo siteInfo)
+        {
+            if (siteInfo != null)
+            {
+                var dbSiteInfo = _siteInfoManager.GetAllEntities().FirstOrDefault();
+                if (dbSiteInfo != null)
+                {
+                    dbSiteInfo.CenterTitle = siteInfo.CenterTitle;
+                    dbSiteInfo.Motto = siteInfo.Motto;
+                    dbSiteInfo.Views = siteInfo.Views;
+                    if (_siteInfoManager.EditEntity(dbSiteInfo))
+                    {
+                        return Json("SUCCESS");
+                    }
+                }
+            }
+            return Json("FALSE");
         }
         public IActionResult Index()
         {
