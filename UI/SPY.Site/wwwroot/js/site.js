@@ -1,4 +1,5 @@
-﻿//import { setTimeout } from "timers";
+﻿
+//import { setTimeout } from "timers";
 
 // Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
@@ -430,7 +431,7 @@ $(function () {
 $(function () {
     $("div.article-support span.support").click(function () {
         var currentCount = parseInt($("div.article-support span.support>span").text());
-        $("div.article-support span.support>span").text((currentCount+1).toString());
+        $("div.article-support span.support>span").text((currentCount + 1).toString());
         $.ajax({
             url: "/Content/SupportClick",
             type: "PUT",
@@ -439,16 +440,16 @@ $(function () {
             },
         })
     });
-})
+});
 $(function () {
     $("div.Comment-footer span.support").click(function () {
-        var currentCount = parseInt($("div.Comment-footer span.support").text());
-        $("div.Comment-footer span.support").text((currentCount + 1).toString());
+        var currentCount = parseInt($(this).children("span.support span:nth-child(2)").text());
+        $(this).children("span.support span:nth-child(2)").text((currentCount + 1).toString());
         $.ajax({
-            url: "/Content/SupportClick",
+            url: "/Comment/SupportClick",
             type: "PUT",
             data: {
-                ArticleId: $("input[name='articleId']").val(),
+                CommentId: $(this).parents("li").children("form").children("input[name='commentId']").val(),
             },
         })
     });

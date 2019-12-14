@@ -26,26 +26,33 @@ namespace SPY.Site.Controllers
             {
                 return View(articleView);
             }
-            var article = _articleManager.LoadEntities(x => x.Id == id).FirstOrDefault();
+            var article = _articleManager.LoadEntities(x => x.Id == id).Select(x => new {
+                AuthorName = x.Author.NickName,
+                Title = x.Title,
+                x.AddTime,
+                x.Content,
+                x.ViewCount,
+                x.Category,
+                ArticleId = x.Id,
+                x.SupportCounts,
+            }).FirstOrDefault();
             if (article == null)
             {
-                ModelState.AddModelError(string.Empty, "未查到数据");
                 return View(articleView);
             }
             articleView = new ArticleViewModel
             {
-                Author = article.Author,
+                AuthorName = article.AuthorName,
                 articleTitle = article.Title,
                 publishTime = article.AddTime.ToString("yyyy年MM月dd日 HH:mm:ss"),
                 articleContent = article.Content,
                 viewCount = article.ViewCount,
                 category = article.Category,
-                articleID = article.Id,
+                articleID = article.ArticleId,
                 supportCount = article.SupportCounts,
-
             };
             ViewData["Title"] = articleView.articleTitle;
-            return View(articleView);
+            return View("ArticleContent", articleView);
         }
         public IActionResult NavContent(string title)
         {
@@ -54,20 +61,29 @@ namespace SPY.Site.Controllers
             {
                 return View(articleView);
             }
-            var article = _articleManager.LoadEntities(x => x.Title == title).FirstOrDefault();
+            var article = _articleManager.LoadEntities(x => x.Title == title).Select(x=>new { 
+                AuthorName=x.Author.NickName,
+                Title=x.Title,
+                x.AddTime,
+                x.Content,
+                x.ViewCount,
+                x.Category,
+                ArticleId=x.Id,
+                x.SupportCounts,
+            }).FirstOrDefault();
             if (article == null)
             {
                 return View(articleView);
             }
             articleView = new ArticleViewModel
             {
-                Author = article.Author,
+                AuthorName = article.AuthorName,
                 articleTitle = article.Title,
                 publishTime = article.AddTime.ToString("yyyy年MM月dd日 HH:mm:ss"),
                 articleContent = article.Content,
                 viewCount = article.ViewCount,
                 category = article.Category,
-                articleID = article.Id,
+                articleID = article.ArticleId,
                 supportCount = article.SupportCounts,
             };
             ViewData["Title"] = articleView.articleTitle;

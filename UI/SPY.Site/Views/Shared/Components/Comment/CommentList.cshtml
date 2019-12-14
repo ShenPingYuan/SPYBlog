@@ -44,11 +44,14 @@
                             <span class="reply" style="color: #a5a5f9;">回复</span>&nbsp;
                             <span class="support">
                                 <span>赞</span>
-                                @Model.List[i].Supports
+                                <span>@Model.List[i].Supports</span>
                             </span>
                         </div>
                     </div>
                 </div>
+                <form action="/" method="post">
+                    <input type="hidden" name="commentId" value="@Model.List[i].CommentId" />
+                </form>
             </li>
         }
         <li>

@@ -35,7 +35,7 @@ namespace SPY.View.Model
         /// <summary>
         /// 文章作者名
         /// </summary>
-        public string articleAuthor { get; set; }
+        public string AuthorName { get; set; }
         /// <summary>
         /// 文章概要描述
         /// </summary>

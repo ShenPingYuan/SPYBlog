@@ -7,7 +7,7 @@
 <div class="col-md-9 SPY-right">
     <div class="SPY-right-Content">
         <h2 class="article-title">@Model.articleTitle</h2>
-        <div class="SPY-article-bar-top"><span>@Model.publishTime</span><span>作者:@Model.articleAuthor</span><span>标签：<a>@Model.category</a></span></div>
+        <div class="SPY-article-bar-top"><span>@Model.publishTime</span><span>作者：@Model.AuthorName</span><span>标签：<a href="/ContentList/ArticleList?category=@Model.category">@Model.category</a></span></div>
         <hr />
         <div class="Content-body" id="context">
         </div>

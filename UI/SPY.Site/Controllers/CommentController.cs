@@ -35,5 +35,22 @@ namespace SPY.Site.Controllers
             }
             return Ok(new { code = 1, count = 0, msg = "失败", data = string.Empty});
         }
+        [HttpPut]
+        public IActionResult SupportClick(int commentId)
+        {
+            if (commentId != 0)
+            {
+                var comment = _commentManager.LoadEntities(x=>x.CommentId==commentId).FirstOrDefault();
+                if (comment != null)
+                {
+                    comment.Supports++;
+                    if (_commentManager.EditEntity(comment))
+                    {
+                        return Json(new { code = 0, msg = "SUCCEED", count = 1, data = string.Empty });
+                    }
+                }
+            }
+            return Json(new { code = 1, msg = "FALSE", count = 0, data = string.Empty });
+        }
     }
 }
