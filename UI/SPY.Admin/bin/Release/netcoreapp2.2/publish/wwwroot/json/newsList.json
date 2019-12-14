@@ -1,0 +1,43 @@
+{
+  "code": 200,
+  "msg": "文章列表",
+  "count": 3,
+  "data": [
+    {
+      "newsID": "1",
+      "newsName": "文章名",
+      "newsAuthor": "沈平元",
+      "abstract": "沈平元",
+      "newsStatus": "沈平元",
+      "newsImg": "沈平元",
+      "newsLook": "沈平元",
+      "newsTop": "沈平元",
+      "newsTime": "沈平元",
+      "content": "沈平元"
+    },
+    {
+      "newsID": "2",
+      "newsName": "文章名",
+      "newsAuthor": "沈平元",
+      "abstract": "沈平元",
+      "newsStatus": "沈平元",
+      "newsImg": "沈平元",
+      "newsLook": "沈平元",
+      "newsTop": "沈平元",
+      "newsTime": "沈平元",
+      "content": "沈平元"
+    },
+    {
+      "newsID": "3",
+      "newsName": "文章名",
+      "newsAuthor": "沈平元",
+      "abstract": "沈平元",
+      "newsStatus": "沈平元",
+      "newsImg": "沈平元",
+      "newsLook": "沈平元",
+      "newsTop": "沈平元",
+      "newsTime": "沈平元",
+      "content": "沈平元"
+    }
+  ]
+}

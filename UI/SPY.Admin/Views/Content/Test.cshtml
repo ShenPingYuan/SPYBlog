@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btn').click(function () {
+                $.ajax({
+                    url: "/Content/AddArticle",
+                    contentType:"application/json",
+                    type: 'POST',
+                    data: {
+                        test_data: $('#input').val()
+                    },
+                    before: function (res) {
+                        alert('开始请求');
+                    },
+                    success: function (res) {
+                        alert('请求成功：' + res.toString());
+                    },
+                    error: function (res) {
+                        alert('失败了');
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" id="input">
+    <button id="btn">请按我</button>
+</body>
+</html>

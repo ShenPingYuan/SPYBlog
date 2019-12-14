@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "关于我";
+}
+<div class="col-md-9 SPY-right">
+    <div class="SPY-right-Content">
+        <div class="Content-body">
+            <h4 class="body-title">关于自己</h4>
+            <p>❀一个喜欢IT的90后男生</p>
+            <p>❀一个爱折腾的人</p>
+            <p>❀对IT技术灰常的感兴趣</p>
+            <h4 class="body-title">关于博客</h4>
+            <p>❀域名：www.spystudy.cn</p>
+            <p>❀服务器：腾讯云服务器</p>
+            <p>❀备案号：蜀ICP备19017410号</p>
+            <p>❀程序语言：C#</p>
+            <h4 class="body-title">联系方式</h4>
+            <p>❀QQ：110，电话：110。常联系</p>
+        </div>
+        @await Component.InvokeAsync("Comment", new { articleId = 3 })
+    </div>
+</div>

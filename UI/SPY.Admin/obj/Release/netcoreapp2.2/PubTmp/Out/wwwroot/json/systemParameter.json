@@ -1,0 +1,14 @@
+{
+  "cmsName": "SPY网站后台管理系统",
+  "version": "Version 2.0",
+  "author": "QQ2439739932",
+  "homePage": "Home/Index",
+  "server": "Linux(CentOS 7)",
+  "dataBase": "SQL Server 2017",
+  "maxUpload": "10M",
+  "userRights": "超级管理员",
+  "description": "这是SPY网站“我的学习记录”的后台管理系统",
+  "powerby": "Copyright © 2018 - 2019 沈平元 All Rights Reserved 版权所有",
+  "record": "蜀ICP备19017410号",
+  "keywords": "SPY，平元兄，请叫我平元兄"
+}

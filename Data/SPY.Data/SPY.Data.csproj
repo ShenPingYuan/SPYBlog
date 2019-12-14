@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191206114707_init.cs" />
+    <Compile Remove="Migrations\20191206114707_init.Designer.cs" />
+    <Compile Remove="Migrations\20191206124922_init0.cs" />
+    <Compile Remove="Migrations\20191206124922_init0.Designer.cs" />
+    <Compile Remove="Migrations\20191206125156_init1.cs" />
+    <Compile Remove="Migrations\20191206125156_init1.Designer.cs" />
+    <Compile Remove="Migrations\20191207072601_init3.cs" />
+    <Compile Remove="Migrations\20191207072601_init3.Designer.cs" />
+    <Compile Remove="Migrations\20191207072725_init4.cs" />
+    <Compile Remove="Migrations\20191207072725_init4.Designer.cs" />
+    <Compile Remove="Migrations\20191207072835_init5.cs" />
+    <Compile Remove="Migrations\20191207072835_init5.Designer.cs" />
+    <Compile Remove="Migrations\20191207074052_init6.cs" />
+    <Compile Remove="Migrations\20191207074052_init6.Designer.cs" />
+    <Compile Remove="Migrations\20191207075008_init7.cs" />
+    <Compile Remove="Migrations\20191207075008_init7.Designer.cs" />
+    <Compile Remove="Migrations\20191207075325_init.cs" />
+    <Compile Remove="Migrations\20191207075325_init.Designer.cs" />
+    <Compile Remove="Migrations\20191208170139_init1.cs" />
+    <Compile Remove="Migrations\20191208170139_init1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\SPY.DB.Model\SPY.DB.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,32 @@
+﻿@using SPY.View.Model
+@using System.Web;
+@model ArticleViewModel
+@{
+    Layout = "_Layout";
+}
+<div class="col-md-9 SPY-right">
+    <div class="SPY-right-Content">
+        <h2 class="article-title">@Model.articleTitle</h2>
+        <div class="SPY-article-bar-top"><span>@Model.publishTime</span><span>作者:@Model.articleAuthor</span><span>标签：<a>@Model.category</a></span></div>
+        <hr />
+        <div class="Content-body" id="context">
+        </div>
+        <div class="article-support">
+            <span class="support">
+                ❀点赞❀
+                <span>@Model.supportCount</span>
+            </span>
+        </div>
+        @await Component.InvokeAsync("Comment",new { articleId=Model.articleID })
+        @*<partial name="_CommentPartial" />*@
+    </div>
+    <form action="/" method="post">
+        <input type="hidden" name="content" id="content" value="@HttpUtility.HtmlDecode(Model.articleContent)" />
+        <input type="hidden" name="articleId" value="@Model.articleID" />
+    </form>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("context").innerHTML = document.getElementById("content").value;
+    }
+</script>

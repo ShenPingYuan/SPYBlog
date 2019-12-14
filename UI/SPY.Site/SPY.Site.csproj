@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>841fcf17-5885-4da1-8dd2-23b0bc6115c0</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\files\Computer\" />
+    <Folder Include="wwwroot\files\ProgramSoftware\" />
+    <Folder Include="wwwroot\images\softwares\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\SPY.View.Model\SPY.View.Model.csproj" />
+    <ProjectReference Include="..\..\Repository\SPY.IRepository\SPY.IRepository.csproj" />
+    <ProjectReference Include="..\..\Repository\SPY.Repository.SqlServer\SPY.Repository.SqlServer.csproj" />
+  </ItemGroup>
+
+</Project>
