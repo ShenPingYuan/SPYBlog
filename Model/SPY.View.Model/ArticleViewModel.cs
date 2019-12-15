@@ -65,6 +65,7 @@ namespace SPY.View.Model
         /// </summary>
         public int viewCount { get; set; }
         public int supportCount { get; set; }
+        public int CommentCount { get; set; }
         public ApplicationIdentityUser Author { get; set; }
     }
 }

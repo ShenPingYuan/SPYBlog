@@ -22,7 +22,7 @@ namespace SPY.Site.Controllers
         }
         public IActionResult ArticleList(string category)
         {
-            var articleList =_articleManager.LoadEntities(x => x.Category == category).Include(x=>x.Author).ToList();
+            var articleList =_articleManager.LoadEntities(x => x.Category == category).Include(x=>x.Comments).Include(x=>x.Author).ToList();
             List<ArticleViewModel> viewModels = new List<ArticleViewModel>();
             for (int i = 0; i < articleList.Count; i++)
             {
@@ -35,7 +35,8 @@ namespace SPY.Site.Controllers
                     publishDateTime = articleList[i].AddTime,
                     isTop = articleList[i].IsTop,
                     articleID = articleList[i].Id,
-                    category=articleList[i].Category
+                    category=articleList[i].Category,
+                    CommentCount= articleList[i].Comments.Count,
                 });
             }
             return View(viewModels);

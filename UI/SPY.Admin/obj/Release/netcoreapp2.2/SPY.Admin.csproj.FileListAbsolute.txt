@@ -223,3 +223,4 @@ C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Admin\
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Admin\obj\Release\netcoreapp2.2\SPY.Admin.csproj.CopyComplete
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Admin\obj\Release\netcoreapp2.2\SPY.Admin.dll
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Admin\obj\Release\netcoreapp2.2\SPY.Admin.pdb
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Admin\obj\Release\netcoreapp2.2\Razor\Views\Home\AccessDenied.cshtml.g.cs

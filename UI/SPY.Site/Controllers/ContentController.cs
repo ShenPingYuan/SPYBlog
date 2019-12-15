@@ -71,7 +71,7 @@ namespace SPY.Site.Controllers
             ArticleViewModel articleView = new ArticleViewModel();
             if (title == null)
             {
-                return View(articleView);
+                return View("ArticleContent", articleView);
             }
             var article = _articleManager.LoadEntities(x => x.Title == title).Select(x=>new { 
                 AuthorName=x.Author.NickName,
@@ -85,7 +85,7 @@ namespace SPY.Site.Controllers
             }).FirstOrDefault();
             if (article == null)
             {
-                return View(articleView);
+                return View("ArticleContent", articleView);
             }
             articleView = new ArticleViewModel
             {
