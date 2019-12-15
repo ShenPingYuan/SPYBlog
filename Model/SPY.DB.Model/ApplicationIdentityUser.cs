@@ -12,7 +12,7 @@ namespace SPY.DB.Model
         {
             Articles = new HashSet<Article>();
         }
-        public string UserId { get; set; }
+        //public string UserId { get; set; }
         /// <summary>
         /// 用户昵称
         /// </summary>

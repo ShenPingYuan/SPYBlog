@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SPY.DB.Model;
 using SPY.IRepository;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace SPY.Site.Controllers
 {
+    [Authorize]
     public class TagController:Controller
     {
         private readonly ITagManager _tagManager;

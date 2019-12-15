@@ -17,8 +17,8 @@ namespace SPY.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ApplicationIdentityUser>(b =>
             {
-                b.HasKey(l => l.UserId);
-                b.Property(l => l.UserId).HasMaxLength(50);
+                //b.HasKey(l => l.UserId);
+                //b.Property(l => l.UserId).HasMaxLength(50);
             });
             modelBuilder.Entity<CommentReply>().HasOne(l => l.Comment).WithMany(l => l.CommentReplies).HasForeignKey(l => l.CommentId);
             modelBuilder.Entity<Student>().HasOne(l => l.Desk).WithOne(l => l.Student).HasForeignKey<Student>(l => l.DeskID);
@@ -32,7 +32,7 @@ namespace SPY.Data
             modelBuilder.Entity<Article>(b =>
             {
                 b.HasOne(l => l.Author).WithMany(l => l.Articles).HasForeignKey(l => l.UserId);
-                b.Property(l => l.UserId).HasMaxLength(50);
+                b.Property(l => l.UserId)/*.HasMaxLength(50)*/;
             });
         }
         public DbSet<LatestNews> LatestNews { get; set; }

@@ -131,9 +131,8 @@ namespace SPY.Data.Migrations
 
             modelBuilder.Entity("SPY.DB.Model.ApplicationIdentityUser", b =>
                 {
-                    b.Property<string>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(50);
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
 
@@ -154,9 +153,6 @@ namespace SPY.Data.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("EndTime");
-
-                    b.Property<string>("Id")
-                        .IsRequired();
 
                     b.Property<bool>("IsInUsing");
 
@@ -200,9 +196,7 @@ namespace SPY.Data.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
-                    b.HasKey("UserId");
-
-                    b.HasAlternateKey("Id");
+                    b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -259,8 +253,7 @@ namespace SPY.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(128);
 
-                    b.Property<string>("UserId")
-                        .HasMaxLength(50);
+                    b.Property<string>("UserId");
 
                     b.Property<int>("ViewCount")
                         .HasMaxLength(10);
@@ -367,6 +360,23 @@ namespace SPY.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Desks");
+                });
+
+            modelBuilder.Entity("SPY.DB.Model.LatestNews", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsOpen");
+
+                    b.Property<string>("NewsName");
+
+                    b.Property<string>("NewsUrl");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LatestNews");
                 });
 
             modelBuilder.Entity("SPY.DB.Model.Parent", b =>

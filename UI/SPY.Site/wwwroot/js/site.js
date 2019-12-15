@@ -15,6 +15,8 @@ $(function () {
                     var html = '<li><a href="' + res.data[i].newsUrl + '">' + res.data[i].newsName + '</a></li>';
                     $(".SPY-notice-list").append(html);
                 }
+                var lastHtml = '<li><a href="' + res.data[0].newsUrl + '">' + res.data[0].newsName + '</a></li>';
+                $(".SPY-notice-list").append(lastHtml);
                 noticeRun();
             }
         }
@@ -30,13 +32,14 @@ function noticeRun() {
     $(".SPY-notice-list").hover(function () {
         clearInterval(settime);
     }, function () {
-        notice();
         settime = setInterval(notice, 3500);
     })
 };
 function notice() {
     //console.log(parseInt($(".SPY-notice-list").css("top")));
     console.log($("ul.SPY-notice-list li").length);
+    console.log(parseInt($(".SPY-notice-list").css("top")));
+    console.log(-(($("ul.SPY-notice-list li").length) - 1) * 50);
     if (parseInt($(".SPY-notice-list").css("top")) <= -(($("ul.SPY-notice-list li").length)-1)*50) {
         $(".SPY-notice-list").css("top", "0px");
     }

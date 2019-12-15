@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using SPY.View.Model;
 using SPY.DB.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SPY.Admin.Controllers
 {
+    [Authorize]
     public class RoleController : Controller
     {
         private readonly UserManager<ApplicationIdentityUser> _userManager;

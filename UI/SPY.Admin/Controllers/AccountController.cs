@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ namespace SPY.Admin.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
+        [Authorize(Roles = "顶级管理员")]
         public IActionResult UserList()
         {
             return View();
@@ -48,7 +50,7 @@ namespace SPY.Admin.Controllers
             }
             return Json(new { code = 0, msg = "成功", count = users.Count, data = userViewModels });
         }
-
+        [Authorize]
         public async Task<IActionResult> UserInfo(string userName)
         {
             UserInfoViewModel userInfoViewModel;
@@ -81,6 +83,7 @@ namespace SPY.Admin.Controllers
             };
             return View(userInfoViewModel);
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> UpdateUser(UserInfoViewModel userInfoViewModel)
         {
@@ -107,10 +110,12 @@ namespace SPY.Admin.Controllers
             }
             return Json("失败");
         }
+        [Authorize]
         public IActionResult ChangePwd(string userName)
         {
             return View("ChangePwd",userName);
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> ChangePwd(string userName,string oldPassword,string newPassword)
         {
@@ -126,6 +131,7 @@ namespace SPY.Admin.Controllers
             }
             return Json("失败");
         }
+        [Authorize(Roles = "顶级管理员")]
         [HttpPost]
         public async Task<IActionResult> DeleteUser(string userName)
         {
@@ -189,12 +195,12 @@ namespace SPY.Admin.Controllers
             ModelState.AddModelError("UserName", "登录失败！");
             return View(loginViewModel);
         }
-
+        [Authorize(Roles ="顶级管理员")]
         public IActionResult Register()
         {
             return View();
         }
-
+        [Authorize(Roles = "顶级管理员")]
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
@@ -213,6 +219,7 @@ namespace SPY.Admin.Controllers
 
             return View(registerViewModel);
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
@@ -243,6 +250,7 @@ namespace SPY.Admin.Controllers
             userInfoViewModel = new UserInfoViewModel();
             return View(userInfoViewModel);
         }
+        [Authorize(Roles = "顶级管理员")]
         [HttpPost]
         public async Task<IActionResult> AddUser(AddUserViewModel addUserViewModel)
         {
@@ -268,12 +276,12 @@ namespace SPY.Admin.Controllers
                     {
                         return Json("失败");
                     }
-                    var role = await _roleManager.FindByIdAsync(addUserViewModel.RoleId);
+                    var role = await _roleManager.FindByIdAsync(addUserViewModel.RoleId.ToString());
                     if(role==null)
                     {
                         role = new ApplicationIdentityRole
                         {
-                            Id=addUserViewModel.RoleId,
+                            Id=addUserViewModel.RoleId.ToString(),
                             Name=addUserViewModel.RoleName
                         };
                         var roleresult = await _roleManager.CreateAsync(role);
@@ -310,12 +318,25 @@ namespace SPY.Admin.Controllers
                 var result = await _userManager.UpdateAsync(user);
                 if(result.Succeeded)
                 {
-                    var role = await _roleManager.FindByIdAsync(addUserViewModel.RoleId);
+                    if (addUserViewModel.RoleId == 0)
+                    {
+                        return Json("成功");
+                    }
+                    var userOldRoles = await _userManager.GetRolesAsync(user);
+                    if (userOldRoles.Count > 0)
+                    {
+                        var deleteFromRoleResult = await _userManager.RemoveFromRolesAsync(user, userOldRoles);
+                        if (!deleteFromRoleResult.Succeeded)
+                        {
+                            return Json("失败");
+                        }
+                    }
+                    var role = await _roleManager.FindByIdAsync(addUserViewModel.RoleId.ToString());
                     if(role==null)
                     {
                         role = new ApplicationIdentityRole
                         {
-                            Id = addUserViewModel.RoleId,
+                            Id = addUserViewModel.RoleId.ToString(),
                             Name=addUserViewModel.RoleName
                         };
                         var roleResult = await _roleManager.CreateAsync(role);

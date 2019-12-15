@@ -17,7 +17,7 @@ namespace SPY.View.Model
         /// <summary>
         /// 用户角色ID
         /// </summary>
-        public string RoleId { get; set; }
+        public int RoleId { get; set; }
         /// <summary>
         /// 用户角色、等级
         /// </summary>

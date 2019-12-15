@@ -10,8 +10,8 @@ using SPY.Data;
 namespace SPY.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191214123046_init1")]
-    partial class init1
+    [Migration("20191215122108_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -133,9 +133,8 @@ namespace SPY.Data.Migrations
 
             modelBuilder.Entity("SPY.DB.Model.ApplicationIdentityUser", b =>
                 {
-                    b.Property<string>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(50);
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
 
@@ -156,9 +155,6 @@ namespace SPY.Data.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("EndTime");
-
-                    b.Property<string>("Id")
-                        .IsRequired();
 
                     b.Property<bool>("IsInUsing");
 
@@ -202,9 +198,7 @@ namespace SPY.Data.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
-                    b.HasKey("UserId");
-
-                    b.HasAlternateKey("Id");
+                    b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -255,12 +249,13 @@ namespace SPY.Data.Migrations
                     b.Property<string>("Source")
                         .HasMaxLength(128);
 
+                    b.Property<int>("SupportCounts");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(128);
 
-                    b.Property<string>("UserId")
-                        .HasMaxLength(50);
+                    b.Property<string>("UserId");
 
                     b.Property<int>("ViewCount")
                         .HasMaxLength(10);
@@ -323,7 +318,7 @@ namespace SPY.Data.Migrations
 
             modelBuilder.Entity("SPY.DB.Model.CommentReply", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CommentReplyId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -348,7 +343,7 @@ namespace SPY.Data.Migrations
 
                     b.Property<int>("Supports");
 
-                    b.HasKey("Id");
+                    b.HasKey("CommentReplyId");
 
                     b.HasIndex("CommentId");
 
@@ -367,6 +362,23 @@ namespace SPY.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Desks");
+                });
+
+            modelBuilder.Entity("SPY.DB.Model.LatestNews", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsOpen");
+
+                    b.Property<string>("NewsName");
+
+                    b.Property<string>("NewsUrl");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LatestNews");
                 });
 
             modelBuilder.Entity("SPY.DB.Model.Parent", b =>

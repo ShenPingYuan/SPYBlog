@@ -31,3 +31,14 @@ C:\Users\Administrator\Desktop\我的项目\SPY博客系统\SPY\MyBlog\Data\SPY.
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\SPY\MyBlog\Data\SPY.Data\obj\Release\netcoreapp2.2\SPY.Data.csproj.CopyComplete
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\SPY\MyBlog\Data\SPY.Data\obj\Release\netcoreapp2.2\SPY.Data.dll
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\SPY\MyBlog\Data\SPY.Data\obj\Release\netcoreapp2.2\SPY.Data.pdb
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\bin\Release\netcoreapp2.2\SPY.Data.deps.json
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\bin\Release\netcoreapp2.2\SPY.Data.dll
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\bin\Release\netcoreapp2.2\SPY.Data.pdb
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\bin\Release\netcoreapp2.2\SPY.DB.Model.dll
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\bin\Release\netcoreapp2.2\SPY.DB.Model.pdb
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\obj\Release\netcoreapp2.2\SPY.Data.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\obj\Release\netcoreapp2.2\SPY.Data.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\obj\Release\netcoreapp2.2\SPY.Data.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\obj\Release\netcoreapp2.2\SPY.Data.csproj.CopyComplete
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\obj\Release\netcoreapp2.2\SPY.Data.dll
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Data\SPY.Data\obj\Release\netcoreapp2.2\SPY.Data.pdb

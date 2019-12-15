@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SPY.Admin.Controllers
 {
-
+    [Authorize]
     public class ContentController : Controller
     {
         private readonly UserManager<ApplicationIdentityUser> _userManager;
@@ -74,12 +75,74 @@ namespace SPY.Admin.Controllers
                 data.Add(new
                 {
                     RowId=i+1,
+                    NewsId=newses[i].Id,
                     NewsName=newses[i].NewsName,
                     NewsUrl=newses[i].NewsUrl,
                     IsOpen=newses[i].IsOpen,
                 });
             }
             return Json(new { code = 0, count = data.Count, msg = "SUCCESS", data = data });
+        }
+        [HttpGet]
+        public IActionResult AddLatestNews(int latestNewsId)
+        {
+            LatestNews news = new LatestNews();
+            if (latestNewsId == 0)
+            {
+                return View(news);
+            }
+            news = _latestNewsManager.LoadEntities(x => x.Id == latestNewsId).FirstOrDefault();
+            if (news == null)
+            {
+                news = new LatestNews();
+            }
+            return View(news);
+        }
+        [HttpPost]
+        public IActionResult AddLatestNews(LatestNews latestNews)
+        {
+            if (latestNews == null)
+            {
+                return Json(new { code = 1, msg = "FALSE", count = 0, data = string.Empty });
+            }
+            var news = _latestNewsManager.LoadEntities(x => x.Id == latestNews.Id).FirstOrDefault();
+            if (news != null)
+            {
+                news.IsOpen = latestNews.IsOpen;
+                news.NewsName = latestNews.NewsName;
+                news.NewsUrl = latestNews.NewsUrl;
+                if (_latestNewsManager.EditEntity(news))
+                {
+                    return Json(new { code = 0, msg = "SUCCESS", count = 1, data = string.Empty });
+                }
+            }
+            news = new LatestNews()
+            {
+                IsOpen = latestNews.IsOpen,
+                NewsName = latestNews.NewsName,
+                NewsUrl = latestNews.NewsUrl,
+            };
+            var result = _latestNewsManager.AddEntity(news);
+            if (result != null)
+            {
+                return Json(new { code = 0, msg = "SUCCESS", count = 1, data = string.Empty });
+            }
+            return Json(new { code = 1, msg = "FALSE", count = 0, data = string.Empty });
+        }
+        public IActionResult DeleteLatestNews(int latestNewsId)
+        {
+            if (latestNewsId != 0)
+            {
+                var news = _latestNewsManager.LoadEntities(x => x.Id == latestNewsId).FirstOrDefault();
+                if (news != null)
+                {
+                    if (_latestNewsManager.DeleteEntity(news))
+                    {
+                        return Json(new { code = 0, msg = "SUCCESS", count = 1, data = string.Empty });
+                    }
+                }
+            }
+            return Json(new { code = 1, msg = "FALSE", count = 0, data = string.Empty });
         }
         public IActionResult Index()
         {
@@ -140,7 +203,7 @@ namespace SPY.Admin.Controllers
                         Category = addArticleViewModel.classify,
                         IsTop = addArticleViewModel.newsTop == "true" ? true : false,
                         ImageUrl = addArticleViewModel.newsImg,
-                        UserId=author.UserId,
+                        UserId=author.Id,
                         Author = author,
                     };
                 _articleManager.AddEntityAsync(article);

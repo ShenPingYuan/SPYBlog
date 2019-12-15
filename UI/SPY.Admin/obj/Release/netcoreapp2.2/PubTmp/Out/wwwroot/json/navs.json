@@ -7,9 +7,27 @@
 			"spread": false
 		},
 		{
+			"title": "标签列表",
+			"icon": "icon-chakan",
+			"href": "/Tag/Index",
+			"spread": false
+		},
+		{
 			"title": "图片管理",
 			"icon": "&#xe634;",
 			"href": "page/img/images.html",
+			"spread": false
+		},
+		{
+			"title": "前台基本信息",
+			"icon": "&#xe634;",
+			"href": "/Content/SiteInfo",
+			"spread": false
+		},
+		{
+			"title": "最新消息列表",
+			"icon": "&#xe634;",
+			"href": "/Content/LatestNews",
 			"spread": false
 		},
 		{

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SPY.Admin.Controllers
 {
+    [Authorize]
     public class FileController:Controller
     {
         private readonly IHostingEnvironment _hostEnv;

@@ -26,7 +26,6 @@ namespace SPY.Data.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(maxLength: 50, nullable: false),
                     Id = table.Column<string>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
@@ -58,8 +57,7 @@ namespace SPY.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.UserId);
-                    table.UniqueConstraint("AK_AspNetUsers_Id", x => x.Id);
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,6 +84,21 @@ namespace SPY.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Desks", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LatestNews",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    NewsName = table.Column<string>(nullable: true),
+                    NewsUrl = table.Column<string>(nullable: true),
+                    IsOpen = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LatestNews", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -183,19 +196,13 @@ namespace SPY.Data.Migrations
                     Content = table.Column<string>(maxLength: 2147483647, nullable: true),
                     ViewCount = table.Column<int>(maxLength: 10, nullable: false),
                     Sort = table.Column<string>(maxLength: 10, nullable: false),
-                    UserId = table.Column<string>(maxLength: 50, nullable: true),
+                    UserId = table.Column<string>(nullable: true),
                     Source = table.Column<string>(maxLength: 128, nullable: true),
-                    SeoTitle = table.Column<string>(maxLength: 128, nullable: true),
-                    SeoKeyword = table.Column<string>(maxLength: 256, nullable: true),
-                    SeoDescription = table.Column<string>(maxLength: 512, nullable: true),
-                    AddManagerId = table.Column<int>(maxLength: 10, nullable: false),
                     AddTime = table.Column<DateTime>(maxLength: 23, nullable: false),
-                    ModifyManagerId = table.Column<int>(maxLength: 10, nullable: true),
-                    ModifyTime = table.Column<DateTime>(maxLength: 23, nullable: true),
                     IsTop = table.Column<bool>(maxLength: 1, nullable: false),
-                    IsSlide = table.Column<bool>(maxLength: 1, nullable: false),
                     IsRed = table.Column<bool>(maxLength: 1, nullable: false),
                     IsPublish = table.Column<bool>(maxLength: 1, nullable: false),
+                    SupportCounts = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(maxLength: 1, nullable: false)
                 },
                 constraints: table =>
@@ -205,7 +212,7 @@ namespace SPY.Data.Migrations
                         name: "FK_Articles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "UserId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -226,7 +233,7 @@ namespace SPY.Data.Migrations
                         name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "UserId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -246,7 +253,7 @@ namespace SPY.Data.Migrations
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "UserId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -270,7 +277,7 @@ namespace SPY.Data.Migrations
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "UserId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -290,7 +297,7 @@ namespace SPY.Data.Migrations
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "UserId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -388,7 +395,7 @@ namespace SPY.Data.Migrations
                 name: "CommentReply",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    CommentReplyId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     QQ = table.Column<string>(maxLength: 11, nullable: false),
                     HeadImageUrl = table.Column<string>(nullable: false),
@@ -401,7 +408,7 @@ namespace SPY.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CommentReply", x => x.Id);
+                    table.PrimaryKey("PK_CommentReply", x => x.CommentReplyId);
                     table.ForeignKey(
                         name: "FK_CommentReply_Comments_CommentId",
                         column: x => x.CommentId,
@@ -500,6 +507,9 @@ namespace SPY.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "CommentReply");
+
+            migrationBuilder.DropTable(
+                name: "LatestNews");
 
             migrationBuilder.DropTable(
                 name: "relationShips");

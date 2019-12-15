@@ -58,7 +58,7 @@ namespace SPY.DB.Model
         /// <summary>
         /// 作者
         /// </summary>
-        [MaxLength(50)]
+        //[MaxLength(50)]
         public string UserId { get; set; }
 
         /// <summary>
