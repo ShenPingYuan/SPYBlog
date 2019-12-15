@@ -5,23 +5,39 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-$(document).ready(function () {
+$(function () {
+    $.ajax({
+        url: "/Content/NewsList",
+        type: "GET",
+        success: function (res) {
+            if (res.msg == "SUCCESS") {
+                for (var i = 0; i < res.count; i++) {
+                    var html = '<li><a href="' + res.data[i].newsUrl + '">' + res.data[i].newsName + '</a></li>';
+                    $(".SPY-notice-list").append(html);
+                }
+                noticeRun();
+            }
+        }
+    });
+})
+function noticeRun() {
     $("div.container div.collapse ul li>a").mousedown(function () {
         $("div.container div.collapse ul li>a").css("color", "");
         $(this).css("color", "#f1736a");
     });
     notice();
-    var settime = setInterval(notice, 4000);
+    var settime = setInterval(notice, 3500);
     $(".SPY-notice-list").hover(function () {
         clearInterval(settime);
     }, function () {
         notice();
         settime = setInterval(notice, 3500);
     })
-});
+};
 function notice() {
-    console.log(parseInt($(".SPY-notice-list").css("top")));
-    if (parseInt($(".SPY-notice-list").css("top")) <= -200) {
+    //console.log(parseInt($(".SPY-notice-list").css("top")));
+    console.log($("ul.SPY-notice-list li").length);
+    if (parseInt($(".SPY-notice-list").css("top")) <= -(($("ul.SPY-notice-list li").length)-1)*50) {
         $(".SPY-notice-list").css("top", "0px");
     }
     $(".SPY-notice-list").animate({

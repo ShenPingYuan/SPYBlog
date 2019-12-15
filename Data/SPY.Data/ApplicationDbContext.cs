@@ -35,6 +35,7 @@ namespace SPY.Data
                 b.Property(l => l.UserId).HasMaxLength(50);
             });
         }
+        public DbSet<LatestNews> LatestNews { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Desk> Desks { get; set; }
         public DbSet<Article> Articles { get; set; }

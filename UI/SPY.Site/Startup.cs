@@ -44,6 +44,7 @@ namespace SPY.Site
             services.AddScoped<ICommentManager, CommentManager>();
             services.AddScoped<ITagManager, TagManager>();
             services.AddScoped<ISiteInfoManager, SiteInfoManager>();
+            services.AddScoped<ILatestNewsManager, LatestNewsManager>();
             services.AddHttpClient();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

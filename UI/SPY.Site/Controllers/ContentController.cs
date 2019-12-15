@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SPY.IRepository;
 using SPY.View.Model;
 using System;
@@ -14,10 +15,21 @@ namespace SPY.Site.Controllers
     {
         private readonly IArticleManager _articleManager;
         private readonly IHttpClientFactory _httpClient;
-        public ContentController(IArticleManager articleManager, IHttpClientFactory httpClient)
+        private readonly ILatestNewsManager _latestNewsManager;
+        public ContentController(IArticleManager articleManager, IHttpClientFactory httpClient, ILatestNewsManager latestNewsManager)
         {
             _httpClient = httpClient;
             _articleManager = articleManager;
+            _latestNewsManager = latestNewsManager;
+        }
+        public async Task<IActionResult> NewsList()
+        {
+            var newses =await _latestNewsManager.GetAllEntities().ToListAsync();
+            if (newses != null)
+            {
+                return Json(new { code = 0, msg = "SUCCESS", count = newses.Count, data = newses });
+            }
+            return Json(new { code = 1, msg = "FALSE", count = 0, data = string.Empty });
         }
         public IActionResult ArticleContent(int id)
         {

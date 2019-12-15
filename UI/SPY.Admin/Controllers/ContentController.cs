@@ -7,6 +7,8 @@ using System.Linq;
 using SPY.View.Model;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace SPY.Admin.Controllers
 {
@@ -16,12 +18,16 @@ namespace SPY.Admin.Controllers
         private readonly UserManager<ApplicationIdentityUser> _userManager;
         private readonly IArticleManager _articleManager;
         private readonly ISiteInfoManager _siteInfoManager;
+        private readonly ILatestNewsManager _latestNewsManager;
 
-        public ContentController(IArticleManager articleManager, ISiteInfoManager siteInfoManager, UserManager<ApplicationIdentityUser> userManager)
+        public ContentController(IArticleManager articleManager, ISiteInfoManager siteInfoManager,
+            UserManager<ApplicationIdentityUser> userManager,
+            ILatestNewsManager latestNewsManager)
         {
             _articleManager = articleManager;
             _userManager = userManager;
             _siteInfoManager = siteInfoManager;
+            _latestNewsManager = latestNewsManager;
         }
         public IActionResult SiteInfo()
         {
@@ -50,6 +56,30 @@ namespace SPY.Admin.Controllers
                 }
             }
             return Json("FALSE");
+        }
+        public IActionResult LatestNews()
+        {
+            return View();
+        }
+        public async Task<IActionResult> LatestNewses()
+        {
+            var newses =await _latestNewsManager.GetAllEntities().ToListAsync();
+            if (newses == null)
+            {
+                return Json(new { code = 1, count = 0, msg = "FALSE", data = string.Empty });
+            }
+            var data = new List<object>();
+            for (int i = 0; i < newses.Count; i++)
+            {
+                data.Add(new
+                {
+                    RowId=i+1,
+                    NewsName=newses[i].NewsName,
+                    NewsUrl=newses[i].NewsUrl,
+                    IsOpen=newses[i].IsOpen,
+                });
+            }
+            return Json(new { code = 0, count = data.Count, msg = "SUCCESS", data = data });
         }
         public IActionResult Index()
         {

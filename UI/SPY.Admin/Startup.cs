@@ -62,6 +62,7 @@ namespace SPY.Admin
             services.AddScoped<ICommentManager, CommentManager>();
             services.AddScoped<ITagManager, TagManager>();
             services.AddScoped<ISiteInfoManager, SiteInfoManager>();
+            services.AddScoped<ILatestNewsManager, LatestNewsManager>();
             services.ConfigureApplicationCookie(options =>
             {
                 // Cookie settings
