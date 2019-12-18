@@ -7,6 +7,11 @@
   <PropertyGroup>
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqMyyHSmh70CXbvbDRLKfEgAAAAACAAAAAAAQZgAAAAEAACAAAAAQY43MRC+8DD1t6l/+iUmj/PIr+jh02wG4OwMld+cUZQAAAAAOgAAAAAIAACAAAAAbChRE7FgXTFpj97JfuaTzhOilBmrHaT7tbLoXf59IoCAAAABwA9zpAw+4E9vfwiepPThKOi98qNhWKgyQsP/dFLwaHEAAAACnK/oZ/UhieoJeKtAsb6rPmL320eppfn4YuMdwC9JrqP/ykcbZCYyXD1p5Uu4TtoZBE+D1iZJfeE1uJQQbfnz4</EncryptedPassword>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\SPY24\Desktop\我的项目\SPY\docker\spysite\publish</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Administrator\Desktop\我的项目\SPY博客系统\docker\site\publish</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="SqlServerConnectionString">
+      <Value>Data Source=120.79.46.4%3bInitial Catalog=db_spyblog%3bUser ID=sa%3bPassword=EjeNz28W8OBDfWWr73kDuXEtsMz6A&amp;%3bConnect Timeout=30%3bEncrypt=False%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
 </Project>

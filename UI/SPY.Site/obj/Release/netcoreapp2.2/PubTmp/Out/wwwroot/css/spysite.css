@@ -367,6 +367,7 @@ div.SPY-mainContent-left-three {
             overflow: hidden;
         }
 
+
 div.SPY-mainContent-left-four > div {
     padding: 10px;
 }
@@ -405,7 +406,6 @@ div.SPY-mainContent div {
 
 div.SPY-mainContent-center > div.SPY-notice {
     border: 1px solid #dcdcdc;
-    ;
     background-color: #fff;
     margin-bottom: 12px;
     border-radius: 5px;
@@ -420,7 +420,6 @@ div.SPY-mainContent-center > div.SPY-notice {
         padding: 16px 18px;
         background-color: #f1736a;
         border-right: 1px solid #dcdcdc;
-        ;
         display: inline-block;
         vertical-align: middle;
         margin-right: 15px;
@@ -690,11 +689,14 @@ form.Comment-form {
     color: #999;
     text-align: right;
 }
+    .Comment-footer span{
+        cursor:pointer;
+    }
 
-.SPY-article-software {
-    background-color: rgba(0,0,0,0) !important;
-    padding: 0;
-}
+    .SPY-article-software {
+        background-color: rgba(0,0,0,0) !important;
+        padding: 0;
+    }
 
 .SPY-software-items {
     padding: 20px 30px 25px 30px;
@@ -723,7 +725,6 @@ form.Comment-form {
         display: inline-block;
         vertical-align: bottom;
         color: #2ea7e0;
-        ;
     }
 
     .SPY-software-items .title > a:hover {
@@ -906,11 +907,6 @@ p.software-corporation {
     margin-bottom: 20px;
 }
 
-.Content-body > img {
-    max-width: 850px;
-    height: 100%;
-}
-
 .SPY-article-bar-top {
     text-align: center
 }
@@ -930,4 +926,34 @@ label.error {
     font-size: 15px;
     font-style: normal;
     color: red;
+}
+.loading{
+    text-align:center;
+}
+.loading img{
+    height:60px;
+}
+.NoData{
+    text-align:center
+}
+.NoData span{
+    color:gray;
+    font-size:12px;
+}
+.Comment-ul li{
+    border-bottom: 1px solid #eff3f9;
+}
+.SPY-right-Content .article-support {
+    text-align: center;
+    margin: 30px auto 10px;
+}
+.SPY-right-Content .article-support > span {
+    padding: 8px 12px 8px 12px;
+    border: 1px solid #e2e6ff;
+    border-radius: 5px;
+    margin-top: 4px;
+    background-color: #fff;
+    outline: 0;
+    color: #8e8e8e;
+    cursor:pointer;
 }

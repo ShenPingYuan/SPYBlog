@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <DestinationConnectionStrings Include="SqlServerConnectionString">
-      <Value>Data Source=129.211.76.135%3bInitial Catalog=db_SPYBlog%3bUser ID=spy%3bPassword=Aa2439739932%3bConnect Timeout=30%3bEncrypt=False%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
+      <Value> Data Source=120.79.46.4%3bInitial Catalog=db_spyblog%3bUser ID=sa%3bPassword=EjeNz28W8OBDfWWr73kDuXEtsMz6A&amp;%3bConnect Timeout=30%3bEncrypt=False%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
     </DestinationConnectionStrings>
   </ItemGroup>
 </Project>
