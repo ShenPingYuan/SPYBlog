@@ -29,7 +29,7 @@
 
   <ItemGroup>
     <Folder Include="upload\" />
-    <Folder Include="wwwroot\file\" />
+    <Folder Include="wwwroot\file\upload\" />
   </ItemGroup>
 
 </Project>
