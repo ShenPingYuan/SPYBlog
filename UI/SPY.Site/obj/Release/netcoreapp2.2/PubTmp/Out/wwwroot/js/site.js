@@ -22,6 +22,30 @@ $(function () {
         }
     });
 })
+$(function () {
+    $(".SPY-mainContent-center,.SPY-right").animate({
+        top: "-=350px",
+        opacity: "1",
+    }, 900, function () {
+            $(".SPY-mainContent-center,.SPY-right").animate({
+                top: "0px",
+                //opacity: "1",
+            }, 150);
+    });
+    $(".SPY-mainContent-center,.SPY-right").animate({
+        top: "0px",
+        opacity:"1",
+    }, 1200);
+    $(".SPY-mainContent-left,.SPY-mainContent-right").animate({
+        top: "0px",
+        opacity: "1",
+    }, 800);
+    console.log($(window).height());
+    console.log($(window).innerHeight());
+    console.log($(window).outerHeight());
+    console.log($(document).outerHeight());
+    console.log($(document.body).outerHeight());
+})
 function noticeRun() {
     $("div.container div.collapse ul li>a").mousedown(function () {
         $("div.container div.collapse ul li>a").css("color", "");
@@ -49,6 +73,12 @@ function notice() {
 };
 $(function () {
     $(window).scroll(function () {
+        var topbarwidth = ($("html,body").scrollTop() / ($(this.document).height() - $(this.window).height())) * $(this.window).width();
+        this.console.log(topbarwidth);
+        $(".topLineBar").stop(true, false).animate({
+            width: topbarwidth.toString()+"px",
+        }, 1000,"swing");
+        this.console.log(topbarwidth.toString() + "px");
         if ($("html,body").scrollTop() < 30) {
             $(".ReturnToTop").fadeOut(500);
         } else {
