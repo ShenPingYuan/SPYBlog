@@ -64,7 +64,7 @@
                     {
                         <li class="layui-nav-item" id="userInfo">
                             <a href="javascript:;">
-                                <img src="" class="layui-nav-img userAvatar" width="35" height="35"><cite class="adminName">欢迎 @User.Identity.Name!</cite>
+                                <img src="http://q1.qlogo.cn/g?b=qq&nk=2439739932&s=100" class="layui-nav-img userAvatar" width="35" height="35"><cite class="adminName">欢迎 @User.Identity.Name!</cite>
                             </a>
                             <dl class="layui-nav-child">
                                 <dd><a href="javascript:;" data-url="Account/UserInfo?UserName=@User.Identity.Name"><i class="seraph icon-ziliao" data-icon="icon-ziliao"></i><cite>个人资料</cite></a></dd>
@@ -97,7 +97,7 @@
         <!-- 左侧导航 -->
         <div class="layui-side layui-bg-black">
             <div class="user-photo">
-                <a class="img" title="我的头像"><img src="" class="userAvatar"></a>
+                <a class="img" title="我的头像"><img src="http://q1.qlogo.cn/g?b=qq&nk=2439739932&s=100" class="userAvatar"></a>
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <p>你好！<span class="userName">@User.Identity.Name</span>, 欢迎登录</p>
@@ -165,7 +165,7 @@
     @*获取登陆用户的头像*@
     <script type="text/javascript">
         $(function () {
-            $(".userAvatar").attr("src", "http://q1.qlogo.cn/g?b=qq&nk=2439739932&s=100");
+           //$(".userAvatar").attr("src", "http://q1.qlogo.cn/g?b=qq&nk=2439739932&s=100");
             $.ajax({
                 url: "/Account/UserFaceImage?UserName=@User.Identity.Name",
                 type: "get",

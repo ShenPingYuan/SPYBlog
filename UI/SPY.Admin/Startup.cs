@@ -68,7 +68,7 @@ namespace SPY.Admin
                 // Cookie settings
                 options.Cookie.HttpOnly = true;
                 options.LoginPath = "/Account/Login";
-                options.AccessDeniedPath = "/Account/AccessDenied";
+                options.AccessDeniedPath = "/Home/AccessDenied";
                 options.SlidingExpiration = true;
             });
             services.AddUEditorService();

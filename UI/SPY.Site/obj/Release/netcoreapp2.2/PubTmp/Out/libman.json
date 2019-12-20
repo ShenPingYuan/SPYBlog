@@ -5,6 +5,10 @@
     {
       "library": "bootstrap@3.3.7",
       "destination": "wwwroot/lib/bootstrap@3.3.7/"
+    },
+    {
+      "library": "live2d-widget-model-ichigo@1.0.1",
+      "destination": "wwwroot/json/live2d-widget-model/live2d-widget-model-ichigo/"
     }
   ]
 }

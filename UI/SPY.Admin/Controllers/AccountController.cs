@@ -135,6 +135,10 @@ namespace SPY.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteUser(string userName)
         {
+            if (userName == "2439739932")
+            {
+                return Json("FALSE");
+            }
             if(userName==null)
             {
                 return Json("失败");
@@ -195,12 +199,12 @@ namespace SPY.Admin.Controllers
             ModelState.AddModelError("UserName", "登录失败！");
             return View(loginViewModel);
         }
-        //[Authorize(Roles ="顶级管理员")]
+        [Authorize(Roles ="顶级管理员")]
         public IActionResult Register()
         {
             return View();
         }
-        //[Authorize(Roles = "顶级管理员")]
+        [Authorize(Roles = "顶级管理员")]
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
