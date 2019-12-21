@@ -148,7 +148,7 @@ header a {
 
 body.SPY-bg {
     /*background: url("'../images/bg1.png'") #999;*/
-    background-image: url("../images/bg1.png");
+    background-image: url("../images/bg.png");
     background-repeat: repeat;
     background-attachment: fixed;
 }
