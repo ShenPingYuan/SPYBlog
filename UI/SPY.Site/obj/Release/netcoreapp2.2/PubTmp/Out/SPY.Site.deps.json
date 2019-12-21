@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.2": {
       "SPY.Site/1.0.0": {
         "dependencies": {
+          "BuildBundlerMinifier": "3.2.435",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
@@ -40,6 +41,7 @@
           "SPY.Site.dll": {}
         }
       },
+      "BuildBundlerMinifier/3.2.435": {},
       "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp": "2.8.0",
@@ -3681,6 +3683,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BuildBundlerMinifier/3.2.435": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6i5tLEU9c1o8+y01Ie9J+y8CY8x4P0R1G56KNDtgJmPI3Vd/GzqMqnTxoe8wpg/MAl15jk0KuIzerY1Kxu/WAg==",
+      "path": "buildbundlerminifier/3.2.435",
+      "hashPath": "buildbundlerminifier.3.2.435.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
       "type": "package",

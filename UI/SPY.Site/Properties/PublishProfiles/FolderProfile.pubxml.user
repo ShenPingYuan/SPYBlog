@@ -6,6 +6,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\SPY24\Desktop\我的项目\SPY\SPY1\MyBlog\UI\SPY.Site\bin\Release\netcoreapp2.2\publish\</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Site\bin\Release\netcoreapp2.2\publish\</_PublishTargetUrl>
   </PropertyGroup>
 </Project>

@@ -87,3 +87,4 @@ C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Site\o
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Site\obj\Release\netcoreapp2.2\SPY.Site.csproj.CopyComplete
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Site\obj\Release\netcoreapp2.2\SPY.Site.dll
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Site\obj\Release\netcoreapp2.2\SPY.Site.pdb
+C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\UI\SPY.Site\bin\Release\netcoreapp2.2\bundleconfig.json

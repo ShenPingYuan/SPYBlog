@@ -21,7 +21,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\files\Computer\" />
     <Folder Include="wwwroot\files\ProgramSoftware\" />
-    <Folder Include="wwwroot\images\softwares\" />
     <Folder Include="wwwroot\json\" />
   </ItemGroup>
 
