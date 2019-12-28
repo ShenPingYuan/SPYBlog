@@ -4425,19 +4425,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\MichaelShen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Repository\\SPY.Repository.SqlServer\\SPY.Repository.SqlServer.csproj",
+      "projectUniqueName": "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Repository\\SPY.Repository.SqlServer\\SPY.Repository.SqlServer.csproj",
       "projectName": "SPY.Repository.SqlServer",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Repository\\SPY.Repository.SqlServer\\SPY.Repository.SqlServer.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Repository\\SPY.Repository.SqlServer\\obj\\",
+      "projectPath": "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Repository\\SPY.Repository.SqlServer\\SPY.Repository.SqlServer.csproj",
+      "packagesPath": "C:\\Users\\MichaelShen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Repository\\SPY.Repository.SqlServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MichaelShen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4450,11 +4450,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Data\\SPY.Data\\SPY.Data.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Data\\SPY.Data\\SPY.Data.csproj"
+            "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Data\\SPY.Data\\SPY.Data.csproj": {
+              "projectPath": "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Data\\SPY.Data\\SPY.Data.csproj"
             },
-            "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Repository\\SPY.IRepository\\SPY.IRepository.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Repository\\SPY.IRepository\\SPY.IRepository.csproj"
+            "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Repository\\SPY.IRepository\\SPY.IRepository.csproj": {
+              "projectPath": "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Repository\\SPY.IRepository\\SPY.IRepository.csproj"
             }
           }
         }

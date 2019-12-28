@@ -4080,19 +4080,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\MichaelShen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Model\\SPY.DB.Model\\SPY.DB.Model.csproj",
+      "projectUniqueName": "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Model\\SPY.DB.Model\\SPY.DB.Model.csproj",
       "projectName": "SPY.DB.Model",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Model\\SPY.DB.Model\\SPY.DB.Model.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\我的项目\\SPY博客系统\\MyBlog\\Model\\SPY.DB.Model\\obj\\",
+      "projectPath": "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Model\\SPY.DB.Model\\SPY.DB.Model.csproj",
+      "packagesPath": "C:\\Users\\MichaelShen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MichaelShen\\Desktop\\项目\\SPY博客系统\\SPYBlog\\Model\\SPY.DB.Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MichaelShen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
