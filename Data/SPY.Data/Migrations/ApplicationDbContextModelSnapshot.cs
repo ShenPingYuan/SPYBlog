@@ -222,6 +222,8 @@ namespace SPY.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
+                    b.Property<int>("CategoryId");
+
                     b.Property<string>("Content")
                         .HasMaxLength(2147483647);
 
@@ -262,9 +264,26 @@ namespace SPY.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Articles");
+                });
+
+            modelBuilder.Entity("SPY.DB.Model.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CategoryName");
+
+                    b.Property<string>("ParentCategoryName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("SPY.DB.Model.Child", b =>
@@ -550,6 +569,11 @@ namespace SPY.Data.Migrations
 
             modelBuilder.Entity("SPY.DB.Model.Article", b =>
                 {
+                    b.HasOne("SPY.DB.Model.Category", "CategoryNavigation")
+                        .WithMany("Articles")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("SPY.DB.Model.ApplicationIdentityUser", "Author")
                         .WithMany("Articles")
                         .HasForeignKey("UserId");

@@ -29,6 +29,7 @@ namespace SPY.Data
             modelBuilder.Entity<RelationShip>().HasOne(l => l.Parent).WithMany(l => l.RelationShips).HasForeignKey(l => l.ParentID);
             modelBuilder.Entity<SiteInfo>().HasKey(l => l.Id);
             modelBuilder.Entity<Article>().HasOne(l => l.Author).WithMany(l => l.Articles).HasForeignKey(l => l.UserId);
+            modelBuilder.Entity<Article>().HasOne(l => l.CategoryNavigation).WithMany(l => l.Articles).HasForeignKey(l => l.CategoryId);
             modelBuilder.Entity<Article>(b =>
             {
                 b.HasOne(l => l.Author).WithMany(l => l.Articles).HasForeignKey(l => l.UserId);
@@ -47,5 +48,6 @@ namespace SPY.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<SiteInfo> SiteInfo { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

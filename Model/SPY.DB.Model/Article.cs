@@ -12,6 +12,10 @@ namespace SPY.DB.Model
         [Key]
         public Int32 Id { get; set; }
         /// <summary>
+        /// 分类Id
+        /// </summary>
+        public int CategoryId { get; set; }
+        /// <summary>
         /// 分类
         /// </summary>
         [Required]
@@ -150,5 +154,6 @@ namespace SPY.DB.Model
         /// </summary>
         public List<Comment> Comments { get; set; }
         public ApplicationIdentityUser Author { get; set; }
+        public Category CategoryNavigation { get; set; }
     }
 }

@@ -258,6 +258,7 @@ div.SPY-big-image {
 footer.SPY-footer div.foot p {
     text-align: center;
     line-height: 35px;
+    overflow:hidden;
 }
 
 .SPY-chat_me {
