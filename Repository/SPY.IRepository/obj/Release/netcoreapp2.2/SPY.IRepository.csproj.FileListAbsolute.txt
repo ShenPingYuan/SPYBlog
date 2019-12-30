@@ -42,3 +42,14 @@ C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Repository\SP
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Repository\SPY.IRepository\obj\Release\netcoreapp2.2\SPY.IRepository.csproj.CopyComplete
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Repository\SPY.IRepository\obj\Release\netcoreapp2.2\SPY.IRepository.dll
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Repository\SPY.IRepository\obj\Release\netcoreapp2.2\SPY.IRepository.pdb
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\bin\Release\netcoreapp2.2\SPY.IRepository.deps.json
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\bin\Release\netcoreapp2.2\SPY.IRepository.dll
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\bin\Release\netcoreapp2.2\SPY.IRepository.pdb
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\bin\Release\netcoreapp2.2\SPY.DB.Model.dll
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\bin\Release\netcoreapp2.2\SPY.DB.Model.pdb
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\obj\Release\netcoreapp2.2\SPY.IRepository.csprojAssemblyReference.cache
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\obj\Release\netcoreapp2.2\SPY.IRepository.AssemblyInfoInputs.cache
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\obj\Release\netcoreapp2.2\SPY.IRepository.AssemblyInfo.cs
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\obj\Release\netcoreapp2.2\SPY.IRepository.csproj.CopyComplete
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\obj\Release\netcoreapp2.2\SPY.IRepository.dll
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Repository\SPY.IRepository\obj\Release\netcoreapp2.2\SPY.IRepository.pdb

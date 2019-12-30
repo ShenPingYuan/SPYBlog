@@ -30,3 +30,11 @@ C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Model\SPY.DB.
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Model\SPY.DB.Model\obj\Release\netcoreapp2.2\SPY.DB.Model.AssemblyInfo.cs
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Model\SPY.DB.Model\obj\Release\netcoreapp2.2\SPY.DB.Model.dll
 C:\Users\Administrator\Desktop\我的项目\SPY博客系统\MyBlog\Model\SPY.DB.Model\obj\Release\netcoreapp2.2\SPY.DB.Model.pdb
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Model\SPY.DB.Model\bin\Release\netcoreapp2.2\SPY.DB.Model.deps.json
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Model\SPY.DB.Model\bin\Release\netcoreapp2.2\SPY.DB.Model.dll
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Model\SPY.DB.Model\bin\Release\netcoreapp2.2\SPY.DB.Model.pdb
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Model\SPY.DB.Model\obj\Release\netcoreapp2.2\SPY.DB.Model.csprojAssemblyReference.cache
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Model\SPY.DB.Model\obj\Release\netcoreapp2.2\SPY.DB.Model.AssemblyInfoInputs.cache
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Model\SPY.DB.Model\obj\Release\netcoreapp2.2\SPY.DB.Model.AssemblyInfo.cs
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Model\SPY.DB.Model\obj\Release\netcoreapp2.2\SPY.DB.Model.dll
+C:\Users\MichaelShen\Desktop\项目\SPY博客系统\SPYBlog\Model\SPY.DB.Model\obj\Release\netcoreapp2.2\SPY.DB.Model.pdb
