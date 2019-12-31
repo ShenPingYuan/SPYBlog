@@ -19,10 +19,10 @@
         cols: [[
             { type: "checkbox", fixed: "left", width: 80 },
             { field: 'showId', title: 'ID', width: 120, align: "center" },
-            { field: 'id', title: '标签Id', width: 120, align: "center" },
-            { field: 'name', title: '标签名', width: 300, align: "center" },
-            { field: 'src', title: '连接地址', },
-            { field: 'isInChina', title: '是否国内', width: 200, align: 'center' },
+            { field: 'id', title: '栏目分类Id', width: 120, align: "center" },
+            { field: 'categoryName', title: '栏目分类名', width: 300, align: "center" },
+            { field: 'parentCategoryName', title: '栏目所在导航名', },
+            //{ field: 'isInChina', title: '是否国内', width: 200, align: 'center' },
             { field: 'isOpen', title: '是否开放', align: 'center', width: 170, templet: '#IsOpenBar' },
             { title: '操作', width: 350, templet: '#categoryColumnListBar', fixed: "right", align: "center" }
         ]]
@@ -33,7 +33,7 @@
         console.log(data.elem.checked);
         var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
         $.ajax({
-            url: "/Tag/SwitchOpen",
+            url: "/Category/SwitchOpen",
             type: "POST",
             data: {
                 Id: $(this).parents("tr").find(".laytable-cell-1-id").text(),
@@ -71,29 +71,16 @@
     });
 
     //添加标签
-    function addTag(edit) {
+    function addCategory(edit) {
         var para = "";
         if (typeof (edit) != "undefined") {
-            para = "?tagId=" + edit.id;
+            para = "?categoryId=" + edit.id;
         }
         var index = layui.layer.open({
             title: "添加标签",
             type: 2,
-            content: "/Tag/AddTag" + para,
+            content: "/Category/AddCategory" + para,
             success: function (layero, index) {
-                //var body = layui.layer.getChildFrame('body', index);
-                //if(edit){
-                ////    body.find(".newsName").val(edit.newsName);
-                ////    body.find(".abstract").val(edit.abstract);
-                ////    body.find(".thumbImg").attr("src",edit.newsImg);
-                ////    body.find("#news_content").val(edit.content);
-                ////    body.find(".newsStatus select").val(edit.newsStatus);
-                //    //    body.find(".openness input[name='openness'][title='"+edit.newsLook+"']").prop("checked","checked");
-                //    if (edit.isTop == true) {
-                //        body.find(".newsTop input[name='newsTop']").prop("checked","checked");
-                //    }
-                //    form.render();
-                //}
                 setTimeout(function () {
                     layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
                         tips: 3
@@ -107,8 +94,8 @@
             layui.layer.full(index);
         })
     }
-    $(".addTag_btn").click(function () {
-        addTag();
+    $(".addCategory_btn").click(function () {
+        addCategory();
     })
 
     //批量删除
@@ -139,7 +126,7 @@
             data = obj.data;
 
         if (layEvent === 'edit') { //编辑
-            addTag(data);
+            addCategory(data);
         } else if (layEvent === 'del') { //删除
             layer.confirm('确定删除此标签？', { icon: 3, title: '提示信息' }, function (index) {
                 // $.get("删除文章接口",{
@@ -150,10 +137,10 @@
                 // })
                 var index = top.layer.msg('数据提交中，请稍候', { icon: 16, time: false, shade: 0.8 });
                 $.ajax({
-                    url: "/Tag/DeleteTag",
+                    url: "/Category/DeleteCategory",
                     type: "POST",
                     data: {
-                        tagId: data.id,
+                        categoryId: data.id,
                     },
                     dataType: "text",
                     success: function (res) {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SPY.View.Model
 {
-    class CategoryViewModel
+    public class CategoryViewModel
     {
         public int Id { get; set; }
         public string CategoryName { get; set; }

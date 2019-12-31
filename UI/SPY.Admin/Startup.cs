@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -57,6 +58,7 @@ namespace SPY.Admin
                 options.Password.RequiredUniqueChars = 1;
 
             });
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             //将文章管理添加到容器
             services.AddScoped<IArticleManager, ArticleManager>();
             services.AddScoped<ICommentManager, CommentManager>();
