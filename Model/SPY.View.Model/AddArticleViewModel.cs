@@ -10,6 +10,7 @@ namespace SPY.View.Model
         public AddArticleViewModel()
         {
             Author = new ApplicationIdentityUser();
+            CategoryViews = new List<CategoryViewModel>();
         }
         public string newsName { get; set; }
         public string description { get; set; }
@@ -23,5 +24,6 @@ namespace SPY.View.Model
         public string articleId { get; set; }
         public bool isTop { get; set; }
         public ApplicationIdentityUser Author { get; set; }
+        public List<CategoryViewModel> CategoryViews { get; set; }
     }
 }

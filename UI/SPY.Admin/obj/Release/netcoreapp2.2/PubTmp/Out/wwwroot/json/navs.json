@@ -7,6 +7,12 @@
 			"spread": false
 		},
 		{
+			"title": "文章分类目录",
+			"icon": "icon-text",
+			"href": "/Category/Index",
+			"spread": false
+		},
+		{
 			"title": "标签列表",
 			"icon": "icon-chakan",
 			"href": "/Tag/Index",

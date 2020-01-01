@@ -70,24 +70,11 @@
         <div class="layui-col-md3 layui-col-xs12">
             <blockquote class="layui-elem-quote title"><i class="seraph icon-caidan"></i> 分类目录</blockquote>
             <div class="border category">
-                <div class="category">
-                    <input type="radio" name="category" value="计算机" title="计算机" lay-skin="primary" />
-                    <input type="radio" name="category" value="数据库" title="数据库" lay-skin="primary" />
-                    <input type="radio" name="category" value="Docker" title="Docker" lay-skin="primary" />
-                    <input type="radio" name="category" value="Nginx" title="Nginx" lay-skin="primary" />
-                    <input type="radio" name="category" value="Linux" title="Linux" lay-skin="primary" />
-                    <input type="radio" name="category" value=".Net Core" title=".Net Core" lay-skin="primary" />
-                    <input type="radio" name="category" value="前端那些事" title="前端那些事" lay-skin="primary" />
-                    <input type="radio" name="category" value="编程软件" title="编程软件" lay-skin="primary" />
-                    <input type="radio" name="category" value="Adobe全套" title="Adobe全套" lay-skin="primary" />
-                    <input type="radio" name="category" value="科学上网" title="科学上网" lay-skin="primary" />
-                    <input type="radio" name="category" value="工具软件" title="工具软件" lay-skin="primary" />
-                    <input type="radio" name="category" value="数据库相关" title="数据库相关" lay-skin="primary" />
-                    <input type="radio" name="category" value="关于我" title="关于我" lay-skin="primary" />
-                    <input type="radio" name="category" value="留言板" title="留言板" lay-skin="primary" />
-                    <input type="radio" name="category" value="私人空间" title="私人空间" lay-skin="primary" />
-                    <input type="radio" name="category" value="时间线" title="时间线" lay-skin="primary" />
-                    <input type="radio" name="category" value="其他" title="其他" lay-skin="primary" />
+                <div class="category" id="categories">
+                    @for (int i = 0; i < Model.CategoryViews.Count; i++)
+                    {
+                        <input type="radio" name="category" value="@Model.CategoryViews[i].CategoryName" title="@Model.CategoryViews[i].CategoryName" lay-skin="primary" />
+                    }
                     <input type="hidden" name="" class="category" value="@Model.classify" title="类别" lay-skin="primary" />
                 </div>
             </div>
@@ -152,10 +139,10 @@
             ue.setContent(value, false);
         }
         $(function () {
-            var category = $("input[class='category']").val();
-            $(".category input[value=" + category + "]").not(".category").attr("checked", "checked");
-            console.log(category);
-            console.log($(".category input[value=" + category + "]").not(".category"));
+            if ($("input[class='category']").val() != "") {
+                var category = $("input[class='category']").val();
+                $("#categories input[value=" + category + "]").not(".category").attr("checked", "checked");
+            }
             if ("@Model.isTop"=="True") {
                 $(".newsTop input[name='newsTop']").attr("checked", "checked");
             }

@@ -72,35 +72,13 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn add-btn" lay-submit lay-filter="add-btn">添加</button>
+                <button class="layui-btn add-btn" lay-submit lay-filter="add-btn">修改</button>
                 <button type="reset" class="layui-btn layui-btn-primary btn-reset">重置</button>
             </div>
         </div>
     </form>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/layui/layui.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $(".add-btn").click(function () {
-                $.ajax({
-                    url: "/Content/UpdateSiteInfo",
-                    type: "PUT",
-                    data: {
-                        Views: $("input[name='views']").val(),
-                        CenterTitle:$("input[name='centerTitle']").val(),
-                        Motto:$("input[name='motto']").val(),
-                    },
-                    dataType: "json",
-                    success: function (res) {
-                        if (res == "SUCCESS") {
-                            alert("修改成功");
-                        } else {
-                            alert("修改失败");
-                        }
-                    }
-                });
-            });
-        })
-    </script>
+    <script src="~/js/siteinfo.js"></script>
 </body>
 </html>

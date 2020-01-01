@@ -3,13 +3,37 @@
 		{
 			"title": "文章列表",
 			"icon": "icon-text",
-			"href": "page/news/newsList.html",
+			"href": "/Content/Index",
+			"spread": false
+		},
+		{
+			"title": "文章分类目录",
+			"icon": "icon-text",
+			"href": "/Category/Index",
+			"spread": false
+		},
+		{
+			"title": "标签列表",
+			"icon": "icon-chakan",
+			"href": "/Tag/Index",
 			"spread": false
 		},
 		{
 			"title": "图片管理",
 			"icon": "&#xe634;",
 			"href": "page/img/images.html",
+			"spread": false
+		},
+		{
+			"title": "前台基本信息",
+			"icon": "&#xe634;",
+			"href": "/Content/SiteInfo",
+			"spread": false
+		},
+		{
+			"title": "最新消息列表",
+			"icon": "&#xe634;",
+			"href": "/Content/LatestNews",
 			"spread": false
 		},
 		{
@@ -30,6 +54,13 @@
 					"href": "Account/Login",
 					"spread": false,
 					"target": "_blank"
+				},
+				{
+					"title": "注册",
+					"icon": "&#xe609;",
+					"href": "Account/Register",
+					"spread": false,
+					"target": "_blank"
 				}
 			]
 		}
@@ -38,7 +69,7 @@
 		{
 			"title": "用户中心",
 			"icon": "&#xe612;",
-			"href": "page/user/userList.html",
+			"href": "/Account/UserList",
 			"spread": false
 		},
 		{

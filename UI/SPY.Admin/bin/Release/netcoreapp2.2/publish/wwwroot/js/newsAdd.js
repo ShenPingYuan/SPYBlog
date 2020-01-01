@@ -121,6 +121,9 @@ layui.use(['form', 'layer', 'layedit', 'laydate', 'upload'], function () {
         //截取文章内容中的一部分文字放入文章摘要
         //var abstract = layedit.getText(editIndex).substring(0, 50);
         //弹出loading
+        //alert(ue.getContent());
+        //ue.setContent("<h1>sdafgdfsad</h1>", false);
+        //return false;
         var index = top.layer.msg('数据提交中，请稍候', { icon: 16, time: false, shade: 0.8 });
         //实际使用时的提交信息
         //$.post("/Content/AddArticle",{
@@ -147,6 +150,8 @@ layui.use(['form', 'layer', 'layedit', 'laydate', 'upload'], function () {
                 newsStatus: data.field.status,    //发布状态
                 newsTime: submitTime,    //发布时间
                 newsTop: data.field.newsTop == "on" ? "true" : "false",//是否置顶    
+                authorName: data.field.authorName,//作者
+                articleId: data.field.articleId,
             }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",

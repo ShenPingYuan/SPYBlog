@@ -20,11 +20,14 @@ namespace SPY.Admin.Controllers
         private readonly IArticleManager _articleManager;
         private readonly ISiteInfoManager _siteInfoManager;
         private readonly ILatestNewsManager _latestNewsManager;
+        private readonly ICategoryManager _categoryManager;
 
         public ContentController(IArticleManager articleManager, ISiteInfoManager siteInfoManager,
             UserManager<ApplicationIdentityUser> userManager,
-            ILatestNewsManager latestNewsManager)
+            ILatestNewsManager latestNewsManager,
+            ICategoryManager categoryManager)
         {
+            _categoryManager = categoryManager;
             _articleManager = articleManager;
             _userManager = userManager;
             _siteInfoManager = siteInfoManager;
@@ -64,7 +67,7 @@ namespace SPY.Admin.Controllers
         }
         public async Task<IActionResult> LatestNewses()
         {
-            var newses =await _latestNewsManager.GetAllEntities().ToListAsync();
+            var newses = await _latestNewsManager.GetAllEntities().ToListAsync();
             if (newses == null)
             {
                 return Json(new { code = 1, count = 0, msg = "FALSE", data = string.Empty });
@@ -74,11 +77,11 @@ namespace SPY.Admin.Controllers
             {
                 data.Add(new
                 {
-                    RowId=i+1,
-                    NewsId=newses[i].Id,
-                    NewsName=newses[i].NewsName,
-                    NewsUrl=newses[i].NewsUrl,
-                    IsOpen=newses[i].IsOpen,
+                    RowId = i + 1,
+                    NewsId = newses[i].Id,
+                    NewsName = newses[i].NewsName,
+                    NewsUrl = newses[i].NewsUrl,
+                    IsOpen = newses[i].IsOpen,
                 });
             }
             return Json(new { code = 0, count = data.Count, msg = "SUCCESS", data = data });
@@ -148,15 +151,25 @@ namespace SPY.Admin.Controllers
         {
             return View();
         }
-        public IActionResult AddArticle(int articleId)
+        public async Task<IActionResult> AddArticle(int articleId)
         {
             AddArticleViewModel addArticleViewModel = new AddArticleViewModel();
+            var categories = await _categoryManager.GetAllEntities().ToListAsync();
+            for (int i = 0; i < categories.Count; i++)
+            {
+                addArticleViewModel.CategoryViews.Add(new CategoryViewModel
+                {
+                    CategoryName=categories[i].CategoryName,
+                    ParentCategoryName=categories[i].ParentCategoryName,
+                    Id=categories[i].Id
+                });
+            }
             if (articleId == 0)
             {
-                return View("AddArticle",addArticleViewModel);
+                return View("AddArticle", addArticleViewModel);
             }
             var article = _articleManager.LoadEntities(x => x.Id == articleId).FirstOrDefault();
-            if(article!=null)
+            if (article != null)
             {
                 addArticleViewModel.Author = article.Author;
                 addArticleViewModel.content = article.Content;
@@ -169,7 +182,7 @@ namespace SPY.Admin.Controllers
                 addArticleViewModel.articleId = article.Id.ToString();
                 addArticleViewModel.isTop = article.IsTop;
             }
-            return View("AddArticle",addArticleViewModel);
+            return View("AddArticle", addArticleViewModel);
         }
         public IActionResult ArticleList()
         {
@@ -189,10 +202,10 @@ namespace SPY.Admin.Controllers
                 return Json("失败");
             }
             Article article;
-            if (addArticleViewModel.articleId=="")
+            if (addArticleViewModel.articleId == "")
             {
-                var author =await _userManager.FindByNameAsync(addArticleViewModel.authorName);
-                if(author!=null)
+                var author = await _userManager.FindByNameAsync(addArticleViewModel.authorName);
+                if (author != null)
                 {
                     article = new Article
                     {
@@ -203,11 +216,11 @@ namespace SPY.Admin.Controllers
                         Category = addArticleViewModel.classify,
                         IsTop = addArticleViewModel.newsTop == "true" ? true : false,
                         ImageUrl = addArticleViewModel.newsImg,
-                        UserId=author.Id,
+                        UserId = author.Id,
                         Author = author,
                     };
-                _articleManager.AddEntityAsync(article);
-                return Json("添加成功");
+                    _articleManager.AddEntityAsync(article);
+                    return Json("添加成功");
                 }
             }
             else
@@ -239,11 +252,11 @@ namespace SPY.Admin.Controllers
             {
                 return Json("失败");
             }
-            var article = _articleManager.LoadEntities(x=>x.Id== contentId).FirstOrDefault();
-            if(article!=null)
+            var article = _articleManager.LoadEntities(x => x.Id == contentId).FirstOrDefault();
+            if (article != null)
             {
                 var result = _articleManager.DeleteEntity(article);
-                if(result)
+                if (result)
                 {
                     return Json("成功");
                 }

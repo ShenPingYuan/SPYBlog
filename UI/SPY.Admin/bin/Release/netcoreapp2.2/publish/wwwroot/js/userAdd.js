@@ -5,7 +5,11 @@ layui.use(['form','layer'],function(){
     
     form.on("submit(addUser)",function(data){
         //弹出loading
-        var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
+        var index = top.layer.msg('数据提交中，请稍候', { icon: 16, time: false, shade: 0.8 });
+        //console.log(document.getElementById("usergrade").selectedIndex);
+        //console.log(data.field.usergrade);
+        //console.log($("#usergrade").text());
+        //return false;
         // 实际使用时的提交信息
         $.ajax({
             url: "/Account/AddUser",

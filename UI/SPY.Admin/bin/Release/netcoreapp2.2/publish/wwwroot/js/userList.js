@@ -56,10 +56,14 @@ layui.use(['form','layer','table','laytpl'],function(){
 
     //添加用户
     function addUser(edit) {
+        var para = "";
+        if (typeof (edit) != "undefined") {
+            para = "?UserName=" + edit.userName;
+        }
         var index = layui.layer.open({
             title : "添加用户",
             type: 2,
-            content: "/Account/AddUser?UserName=" + edit.userName,
+            content: "/Account/AddUser" + para,
             success : function(layero, index){
                 var body = layui.layer.getChildFrame('body', index);
                 if (edit) {
@@ -89,29 +93,6 @@ layui.use(['form','layer','table','laytpl'],function(){
     $(".addNews_btn").click(function(){
         addUser();
     })
-
-    //批量删除
-    $(".delAll_btn").click(function(){
-        var checkStatus = table.checkStatus('userListTable'),
-            data = checkStatus.data,
-            newsId = [];
-        if(data.length > 0) {
-            for (var i in data) {
-                newsId.push(data[i].newsId);
-            }
-            layer.confirm('确定删除选中的用户？', {icon: 3, title: '提示信息'}, function (index) {
-                // $.get("删除文章接口",{
-                //     newsId : newsId  //将需要删除的newsId作为参数传入
-                // },function(data){
-                tableIns.reload();
-                layer.close(index);
-                // })
-            })
-        }else{
-            layer.msg("请选择需要删除的用户");
-        }
-    })
-
     //列表操作
     table.on('tool(userList)', function(obj){
         var layEvent = obj.event,
@@ -119,7 +100,11 @@ layui.use(['form','layer','table','laytpl'],function(){
 
         if(layEvent === 'edit'){ //编辑
             addUser(data);
-        }else if(layEvent === 'usable'){ //启用禁用
+        } else if (layEvent === 'usable') { //启用禁用
+            if (data.userName == "2439739932") {
+                alert("不能禁用顶级管理员");
+                return false;
+            }
             var _this = $(this),
                 usableText = "是否确定禁用此用户？",
                 btnText = "已禁用";
@@ -139,7 +124,11 @@ layui.use(['form','layer','table','laytpl'],function(){
             },function(index){
                 layer.close(index);
             });
-        }else if(layEvent === 'del'){ //删除
+        } else if (layEvent === 'del') { //删除
+            if (data.userName == "2439739932") {
+                alert("不能删除顶级管理员");
+                return false;
+            }
             layer.confirm('确定删除此用户？',{icon:3, title:'提示信息'},function(index){
                  //$.get("/Account/DeleteUser",{
                  //    newsId : data.newsId  //将需要删除的newsId作为参数传入
