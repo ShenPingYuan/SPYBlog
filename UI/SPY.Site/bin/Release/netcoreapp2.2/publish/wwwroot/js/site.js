@@ -534,3 +534,36 @@ $(function () {
         })
     });
 })
+$(function () {
+    $.ajax({
+        url: "/Category/Categories",
+        type: "GET",
+        dataType: "json",
+        cache: true,
+        success: function (res) {
+            if (res.code == 0) {
+                var num1 = 1, num2 = 1;
+                for (var i = 0; i < res.count; i++) {
+                    var html = '';
+                    if (res.data[i].parentCategoryName == "常用软件") {
+                        if (num1 == 1) {
+                            html = '<li><a href="/ContentList/ArticleList?category=' + res.data[i].categoryName + '">' + res.data[i].categoryName + '</a></li>';
+                        } else {
+                            html = '<li role="separator" class="divider"></li><li><a href="/ContentList/ArticleList?category=' + res.data[i].categoryName + '">' + res.data[i].categoryName + '</a></li>';
+                        }
+                        $("li.dropdown ul#softwares").append(html);
+                        num1++;
+                    } else if (res.data[i].parentCategoryName == "技术杂谈") {
+                        if (num2 == 1) {
+                            html = '<li><a href="/ContentList/ArticleList?category=' + res.data[i].categoryName + '">' + res.data[i].categoryName + '</a></li>';
+                        } else {
+                            html = '<li role="separator" class="divider"></li><li><a href="/ContentList/ArticleList?category=' + res.data[i].categoryName + '">' + res.data[i].categoryName + '</a></li>';
+                        }
+                        $("li.dropdown ul#technologies").append(html);
+                        num2++;
+                    }
+                }
+            }
+        }
+    })
+})

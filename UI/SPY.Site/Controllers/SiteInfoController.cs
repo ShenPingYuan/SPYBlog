@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SPY.DB.Model;
 using SPY.IRepository;
 using System;
@@ -16,8 +17,14 @@ namespace SPY.Site.Controllers
         private readonly IArticleManager _articleManager;
         private readonly ITagManager _tagManager;
         private readonly ICommentManager _commentManager;
-        public SiteInfoController(ISiteInfoManager siteInfoManager, IArticleManager articleManager, ITagManager tagManager, ICommentManager commentManager)
+        private readonly ICategoryManager _categoryManager;
+        public SiteInfoController(ISiteInfoManager siteInfoManager,
+            IArticleManager articleManager,
+            ITagManager tagManager,
+            ICommentManager commentManager,
+            ICategoryManager categoryManager)
         {
+            _categoryManager = categoryManager;
             _siteInfoManager = siteInfoManager;
             _articleManager = articleManager;
             _commentManager = commentManager;
@@ -39,7 +46,7 @@ namespace SPY.Site.Controllers
             return Ok(new { code = 0, count = 1, msg = "成功", data = info });
         }
         [HttpPut]
-        public IActionResult UpdateSiteInfo()
+        public async Task<IActionResult> UpdateSiteInfo()
         {
             SiteInfo info = _siteInfoManager.GetAllEntities().FirstOrDefault();
             if (info == null)
@@ -49,7 +56,7 @@ namespace SPY.Site.Controllers
             info.ArticleCount = _articleManager.GetAllEntities().Count();
             info.TagCount = _tagManager.GetAllEntities().Count();
             info.CommentCount = _commentManager.GetAllEntities().Count();
-            info.ColumnCount = 17;//死数据，后期改
+            info.ColumnCount = (await _categoryManager.GetAllEntities().ToListAsync()).Count;//死数据，后期改
             info.Views++;
             var result = _siteInfoManager.EditEntity(info);
             if (result)

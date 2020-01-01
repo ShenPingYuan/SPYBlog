@@ -190,5 +190,4 @@ layui.use(['form', 'layer', 'layedit', 'laydate', 'upload'], function () {
             url: "../../json/newsImg.json"
         }
     });
-
 })
