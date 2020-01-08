@@ -218,8 +218,10 @@ namespace SPY.Admin.Controllers
                         ImageUrl = addArticleViewModel.newsImg,
                         UserId = author.Id,
                         Author = author,
+                        Sort = "置顶",
+                        CategoryId=2,
                     };
-                    _articleManager.AddEntityAsync(article);
+                    _articleManager.AddEntity(article);
                     return Json("添加成功");
                 }
             }
