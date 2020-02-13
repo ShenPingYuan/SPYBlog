@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using SPY.DB.Model;
@@ -16,9 +17,15 @@ namespace SPY.Site.Controllers
     public class ContentListController:Controller
     {
         private readonly IArticleManager _articleManager;
-        public ContentListController(IArticleManager articleManager)
+        private readonly IConfiguration _configuration;
+        public ContentListController(IArticleManager articleManager, IConfiguration configuration)
         {
             _articleManager = articleManager;
+            _configuration = configuration;
+        }
+        public string GetFileUploadDomain()
+        {
+            return _configuration["UpLoadFilesDomain"];
         }
         public IActionResult ArticleList(string category)
         {
@@ -29,7 +36,7 @@ namespace SPY.Site.Controllers
                 viewModels.Add(new ArticleViewModel
                 {
                     Author = articleList[i].Author,
-                    articleImg = articleList[i].ImageUrl,
+                    articleImg = GetFileUploadDomain()+ articleList[i].ImageUrl,
                     articleTitle = articleList[i].Title,
                     description = articleList[i].description,
                     publishDateTime = articleList[i].AddTime,
@@ -61,7 +68,7 @@ namespace SPY.Site.Controllers
                 viewModels.Add(new ArticleViewModel
                 {
                     Author = articleList[i].Author,
-                    articleImg = articleList[i].ImageUrl,
+                    articleImg = GetFileUploadDomain() + articleList[i].ImageUrl,
                     articleTitle = articleList[i].Title,
                     description = articleList[i].description,
                     publishDateTime = articleList[i].AddTime,
@@ -83,7 +90,7 @@ namespace SPY.Site.Controllers
                 x.Title,
                 x.AddTime,
                 x.description,
-                x.ImageUrl,
+                ImageUrl = GetFileUploadDomain() + x.ImageUrl,
                 x.Id,
                 x.Author.NickName,
                 x.ViewCount,
@@ -112,7 +119,7 @@ namespace SPY.Site.Controllers
             int totalCount;
             var articles =await _articleManager.LoadEntities(topCount, out totalCount, x => true, x => x.Id, false).Select(x=>new {
                 x.Title,
-                x.ImageUrl,
+                ImageUrl = GetFileUploadDomain() + x.ImageUrl,
                 x.Id,
                 x.ViewCount
             }).ToListAsync();
@@ -131,7 +138,7 @@ namespace SPY.Site.Controllers
             int totalCount;
             var articles = await _articleManager.LoadEntities(topCount, out totalCount, x => true, x => x.ViewCount, false).Select(x => new {
                 x.Title,
-                x.ImageUrl,
+                ImageUrl = GetFileUploadDomain() + x.ImageUrl,
                 x.Id,
                 x.ViewCount
             }).ToListAsync();
@@ -155,7 +162,7 @@ namespace SPY.Site.Controllers
                 articleViews.Add(new ArticleViewModel
                 {
                     articleID=articles[i].Id,
-                    articleImg=articles[i].ImageUrl,
+                    articleImg= GetFileUploadDomain()+articles[i].ImageUrl,
                 });
             }
             if (articles != null)
