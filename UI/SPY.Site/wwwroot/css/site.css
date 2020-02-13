@@ -261,6 +261,9 @@ footer.SPY-footer div.foot p {
     overflow:hidden;
 }
 
+footer.SPY-footer div.foot{
+    margin-bottom:10px;
+}
 .SPY-chat_me {
     background-color: white;
     line-height: 60px;

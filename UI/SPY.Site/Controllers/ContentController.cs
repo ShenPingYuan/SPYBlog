@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using SPY.IRepository;
 using SPY.View.Model;
 using System;
@@ -16,11 +17,20 @@ namespace SPY.Site.Controllers
         private readonly IArticleManager _articleManager;
         private readonly IHttpClientFactory _httpClient;
         private readonly ILatestNewsManager _latestNewsManager;
-        public ContentController(IArticleManager articleManager, IHttpClientFactory httpClient, ILatestNewsManager latestNewsManager)
+        private readonly IConfiguration _configuration;
+        public ContentController(IArticleManager articleManager,
+            IHttpClientFactory httpClient,
+            ILatestNewsManager latestNewsManager,
+            IConfiguration configuration)
         {
+            _configuration = configuration;
             _httpClient = httpClient;
             _articleManager = articleManager;
             _latestNewsManager = latestNewsManager;
+        }
+        public string GetFileUploadDomain()
+        {
+            return _configuration["UpLoadFilesDomain"];
         }
         public async Task<IActionResult> NewsList()
         {
@@ -57,7 +67,7 @@ namespace SPY.Site.Controllers
                 AuthorName = article.AuthorName,
                 articleTitle = article.Title,
                 publishTime = article.AddTime.ToString("yyyy年MM月dd日 HH:mm:ss"),
-                articleContent = article.Content,
+                articleContent = article.Content.Replace(@"/upload", GetFileUploadDomain() + @"/upload"),
                 viewCount = article.ViewCount,
                 category = article.Category,
                 articleID = article.ArticleId,
@@ -92,7 +102,7 @@ namespace SPY.Site.Controllers
                 AuthorName = article.AuthorName,
                 articleTitle = article.Title,
                 publishTime = article.AddTime.ToString("yyyy年MM月dd日 HH:mm:ss"),
-                articleContent = article.Content,
+                articleContent = article.Content.Replace(@"/upload", GetFileUploadDomain() + @"/upload"),
                 viewCount = article.ViewCount,
                 category = article.Category,
                 articleID = article.ArticleId,
