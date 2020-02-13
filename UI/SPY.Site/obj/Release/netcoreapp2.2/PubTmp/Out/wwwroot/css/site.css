@@ -261,6 +261,9 @@ footer.SPY-footer div.foot p {
     overflow:hidden;
 }
 
+footer.SPY-footer div.foot{
+    margin-bottom:15px;
+}
 .SPY-chat_me {
     background-color: white;
     line-height: 60px;
@@ -279,6 +282,7 @@ div.SPY-mainContent-center {
     position: relative;
     top: 400px;
     opacity: 0;
+    margin-bottom:20px;
 }
 
 nav.SPY-nav {
@@ -584,6 +588,7 @@ div.SPY-notice ul {
 .SPY-right-Content {
     background-color: #fff;
     padding: 30px;
+    margin-bottom:20px;
 }
 
     .SPY-right-Content .Content-body {

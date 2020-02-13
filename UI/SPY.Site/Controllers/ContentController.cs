@@ -134,14 +134,14 @@ namespace SPY.Site.Controllers
             try
             {
                 var client = _httpClient.CreateClient();
-                string result = await client.GetStringAsync("https://www.usuuu.com/uu/api/qq/"+qq);
-                int errorFirst = result.IndexOf("500");
-                if (errorFirst == 10)
+                string result = await client.GetStringAsync("https://api.toubiec.cn/qq?qq="+qq+"&size=100");
+                int errorFirst = result.IndexOf("200");
+                if (errorFirst == -1)
                 {
                     return Json("不存在该QQ号");
                 }
                 int first1 = result.IndexOf("name") + 7;
-                int first2 = result.IndexOf("avatar") - 3;
+                int first2 = result.IndexOf("}") - 1;
                 nickName = result.Substring(first1, first2 - first1);
             }
             catch (HttpRequestException e)

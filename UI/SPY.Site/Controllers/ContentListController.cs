@@ -94,7 +94,7 @@ namespace SPY.Site.Controllers
                 x.Id,
                 x.Author.NickName,
                 x.ViewCount,
-                x.Author.UserFaceImgUrl,
+                UserFaceImgUrl= GetFileUploadDomain() + x.Author.UserFaceImgUrl,
                 CommentCount=x.Comments.Count
             }).ToList();
             if (articlelist!=null)
